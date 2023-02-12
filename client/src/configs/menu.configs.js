@@ -1,6 +1,6 @@
-import HomeOutlinedIcon from "mui/icons-material/HomeOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SlideshowOutlinedIcon from "@mui/icons-material/SlideshowOutlined";
-import LiveTvOutLinedIcon from "@mui/icons-material/LiveTvOutLined";
+import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
@@ -11,26 +11,26 @@ const main = [
     display: "home",
     path: "/",
     icon: <HomeOutlinedIcon />,
-    state: "home",
+    state: "home"
   },
   {
     display: "movies",
     path: "/movie",
     icon: <SlideshowOutlinedIcon />,
-    state: "movie",
+    state: "movie"
   },
   {
     display: "tv series",
     path: "/tv",
-    icon: <LiveTvOutLinedIcon />,
-    state: "hometv",
+    icon: <LiveTvOutlinedIcon />,
+    state: "tv"
   },
   {
     display: "search",
     path: "/search",
     icon: <SearchOutlinedIcon />,
-    state: "search",
-  },
+    state: "search"
+  }
 ];
 
 const user = [
@@ -38,20 +38,20 @@ const user = [
     display: "favorites",
     path: "/favorites",
     icon: <FavoriteBorderOutlinedIcon />,
-    state: "favorite",
+    state: "favorite"
   },
   {
     display: "reviews",
     path: "/reviews",
     icon: <RateReviewOutlinedIcon />,
-    state: "reviews",
+    state: "reviews"
   },
   {
     display: "password update",
     path: "/password-update",
     icon: <LockResetOutlinedIcon />,
-    state: "password.update",
-  },
+    state: "password.update"
+  }
 ];
 
 const menuConfigs = { main, user };

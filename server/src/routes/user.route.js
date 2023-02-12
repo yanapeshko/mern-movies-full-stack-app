@@ -38,8 +38,8 @@ router.post(
   body("displayName")
     .exists()
     .withMessage("displayName is required")
-    .isLength({ min: 8 })
-    .withMessage("displayName minimum 8 characters"),
+    .isLength({ min: 3 })
+    .withMessage("displayName minimum 3 characters"),
   requestHandler.validate,
   userController.signup
 );

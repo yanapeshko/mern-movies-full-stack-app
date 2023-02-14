@@ -18,7 +18,7 @@ const SigninForm = ({ switchAuthState }) => {
   const signinForm = useFormik({
     initialValues: {
       password: "",
-      username: ""
+      username: "",
     },
     validationSchema: Yup.object({
       username: Yup.string()
@@ -26,12 +26,11 @@ const SigninForm = ({ switchAuthState }) => {
         .required("username is required"),
       password: Yup.string()
         .min(8, "password minimum 8 characters")
-        .required("password is required")
+        .required("password is required"),
     }),
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       setErrorMessage(undefined);
       setIsLoginRequest(true);
-      console.log("asdasdasdasd");
       const { response, err } = await userApi.signin(values);
       setIsLoginRequest(false);
 
@@ -43,9 +42,8 @@ const SigninForm = ({ switchAuthState }) => {
       }
 
       if (err) setErrorMessage(err.message);
-    }
+    },
   });
-
   return (
     <Box component="form" onSubmit={signinForm.handleSubmit}>
       <Stack spacing={3}>
@@ -57,7 +55,10 @@ const SigninForm = ({ switchAuthState }) => {
           value={signinForm.values.username}
           onChange={signinForm.handleChange}
           color="success"
-          error={signinForm.touched.username && signinForm.errors.username !== undefined}
+          error={
+            signinForm.touched.username &&
+            signinForm.errors.username !== undefined
+          }
           helperText={signinForm.touched.username && signinForm.errors.username}
         />
         <TextField
@@ -68,11 +69,13 @@ const SigninForm = ({ switchAuthState }) => {
           value={signinForm.values.password}
           onChange={signinForm.handleChange}
           color="success"
-          error={signinForm.touched.password && signinForm.errors.password !== undefined}
+          error={
+            signinForm.touched.password &&
+            signinForm.errors.password !== undefined
+          }
           helperText={signinForm.touched.password && signinForm.errors.password}
         />
       </Stack>
-
       <LoadingButton
         type="submit"
         fullWidth
@@ -84,17 +87,14 @@ const SigninForm = ({ switchAuthState }) => {
         sign in
       </LoadingButton>
 
-      <Button
-        fullWidth
-        sx={{ marginTop: 1 }}
-        onClick={() => switchAuthState()}
-      >
+      <Button fullWidth sx={{ marginTop: 1 }} onClick={() => switchAuthState()}>
         sign up
       </Button>
-
       {errorMessage && (
         <Box sx={{ marginTop: 2 }}>
-          <Alert severity="error" variant="outlined" >{errorMessage}</Alert>
+          <Alert severity="error" variant="outlined">
+            {errorMessage}
+          </Alert>
         </Box>
       )}
     </Box>
